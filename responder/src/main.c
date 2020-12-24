@@ -10,6 +10,7 @@
 
 #include<stdio.h>
 #include<util.h>
+#include<db.h>
 
 int main(){
 
@@ -22,5 +23,5 @@ int main(){
 	printf("The values recieved are %d , %d\n", firstNumber, secondNumber);
 	result = utilAddTwoNumbers(firstNumber,secondNumber);
 	printf("Sum of the two number's is %d\n",result);
-
+        dbInitialise();
 }
