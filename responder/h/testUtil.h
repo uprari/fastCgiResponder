@@ -1,0 +1,2 @@
+
+bool testNoOfChars(void);

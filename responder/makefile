@@ -1,13 +1,24 @@
 MYSQL_LIB_PATH = -I/usr/include/mysql
 
-INCLUDE = -I/h/ \
+
+.SUFFIXES: .o .c 
+
+INCLUDE = -Ih/ \
 	  -I../db/h/ \
 	  -I../util/h/ 
+SRC = ./src
 
+OBJ = main.o testUtil.o
 
-all:
-	gcc -c $(INCLUDE) $(MYSQL_LIB_PATH) src/*.c -o main.o
+%.o : $(SRC)/%.c
+	
+	gcc -g -c $(INCLUDE) $(MYSQL_LIB_PATH) $< -o $@
 
+all: $(OBJ)
+	
+	mv *.o obj/
+	
 install :
-	gcc main.o ../db/db.o ../util/util.o -o test.exe
-
+	gcc -g obj/*.o ../db/db.o ../util/util.o -o test.exe
+clean:
+	rm -rf obj/*.o

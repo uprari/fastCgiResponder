@@ -11,6 +11,7 @@
 #include<stdio.h>
 #include<util.h>
 #include<db.h>
+#include<testUtil.h>
 
 int main(){
 
@@ -24,4 +25,5 @@ int main(){
 	result = utilAddTwoNumbers(firstNumber,secondNumber);
 	printf("Sum of the two number's is %d\n",result);
         dbInitialise();
+	testNoOfChars();
 }

@@ -1,0 +1,14 @@
+
+# This key values are separated with 
+# a single space
+
+			     
+ 
+         
+
+server localhost
+user root
+password NA
+database webpages
+
+
