@@ -6,4 +6,4 @@
 
 int utilAddTwoNumbers(int a, int b);
 int noOfChars(const char *word);
-void captureConfig( char *filePath, void (*configAdd)(char*,int,int));
+void captureConfig(char *filePath, void (*configAdd) (char *, int, int));

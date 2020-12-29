@@ -1,7 +1,7 @@
 //================================================
 // 
 // Title : A fastCgi Response Handling application
-//	Optimising throuput by caching
+//      Optimising throuput by caching
 // Author : Vineet Uprari
 // Date : 23/12/2020
 //
@@ -19,30 +19,32 @@
 #define SUCCESS_ 0
 #define FAILURE_ 1
 
-int main(){
+int main()
+{
 
-	tErrCode err;
+    tErrCode err;
 
-	printf("Bootcamp 1.0\n");
-	int firstNumber,secondNumber, result;
-	
-	printf("please enter two numberi\n");
-	scanf("%d %d",&firstNumber,&secondNumber);
+    printf("Bootcamp 1.0\n");
+    int firstNumber, secondNumber, result;
 
-	printf("The values recieved are %d , %d\n", firstNumber, secondNumber);
-	result = utilAddTwoNumbers(firstNumber,secondNumber);
-	printf("Sum of the two number's is %d\n",result);
-	initErrorCodes();
-        if( ( err = dbInitialise() ) != SUCCESS ){
-		printf("database initialisation failed due to err : %s\n", errDescription[err]);
-		return FAILURE_;
-	}
+    printf("please enter two numberi\n");
+    scanf("%d %d", &firstNumber, &secondNumber);
 
-	char *responseUrl = NULL;
-	char *queryUserName = "raju";
-	dbGetResponseUrlForUser( queryUserName, responseUrl);
-	
-	testDbGetResponseUrlForUser();	
-	testNoOfChars();
-	return SUCCESS_;
+    printf("The values recieved are %d , %d\n", firstNumber, secondNumber);
+    result = utilAddTwoNumbers(firstNumber, secondNumber);
+    printf("Sum of the two number's is %d\n", result);
+    initErrorCodes();
+    if ((err = dbInitialise()) != SUCCESS) {
+	printf("database initialisation failed due to err : %s\n",
+	       errDescription[err]);
+	return FAILURE_;
+    }
+
+    char *responseUrl = NULL;
+    char *queryUserName = "raju";
+    dbGetResponseUrlForUser(queryUserName, responseUrl);
+
+    testDbGetResponseUrlForUser();
+    testNoOfChars();
+    return SUCCESS_;
 }

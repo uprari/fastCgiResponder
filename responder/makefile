@@ -26,6 +26,8 @@ install :
 clean:
 	rm -rf obj/*.o
 
+indent :
+	indent -kr src/*.c h/*.h
 print:
 	@echo $(OBJ)
 	@echo $(SRC)

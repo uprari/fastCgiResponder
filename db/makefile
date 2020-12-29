@@ -16,6 +16,8 @@ all : $(OBJ)
 clean:
 	rm -rf *.o
 
+indent :
+	indent -kr $(SOURCE_DIR)*.c $(HEADER_DIR)*.h
 print:
 	@echo $(SRC)
 	@echo $(OBJ)

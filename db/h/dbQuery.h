@@ -3,4 +3,4 @@
 
 char glbQueryString[MAX_QUERY_SIZE];
 
-tErrCode dbGetResponseUrlForUser(char *username, char* url);
+tErrCode dbGetResponseUrlForUser(char *username, char *url);

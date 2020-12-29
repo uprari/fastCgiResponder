@@ -2,19 +2,19 @@
 #include <stdbool.h>
 #include <errCodes.h>
 #define MAX_LINE_SIZE 100
-typedef struct globalDbInfo{
+typedef struct globalDbInfo {
 
-	MYSQL *conn;
-	MYSQL_RES *res;
-	MYSQL_ROW row;
+    MYSQL *conn;
+    MYSQL_RES *res;
+    MYSQL_ROW row;
 } globalDbInfo;
 
-typedef struct globalDbConfig{
+typedef struct globalDbConfig {
 
-	char *server;
-	char *user;
-	char *password;
-	char *database;
+    char *server;
+    char *user;
+    char *password;
+    char *database;
 
 } globalDbConfig;
 //global data structures
@@ -25,9 +25,8 @@ globalDbConfig dbConfig;
 tErrCode dbInitialise(void);
 tErrCode dbReadConfig(void);
 int escapeSpace(char *buffer, int index);
-bool extractKeyVal(char *buf, int *k, int *v , int index);
+bool extractKeyVal(char *buf, int *k, int *v, int index);
 void addConfigValue(char *buffer, int key, int val);
 void printGlobalConfig(void);
 tErrCode dbConnect(void);
 tErrCode dbConfigValidate();
-
