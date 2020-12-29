@@ -8,7 +8,7 @@
 
 server localhost
 user root
-password NA
+password 1212
 database webpages
 
 

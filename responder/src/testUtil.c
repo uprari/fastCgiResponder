@@ -2,6 +2,8 @@
 #include<stdbool.h>
 #include<stdio.h>
 #include<testUtil.h>
+#include<errCodes.h>
+#include<dbQuery.h>
 
 bool testNoOfChars(){
 
@@ -22,5 +24,18 @@ bool testNoOfChars(){
 		index++;
 	}
 	return true;
+
+}
+
+void testDbGetResponseUrlForUser(void){
+
+	char userList[4][10] = {"jacob","srini","jyoti","prabjot"};
+	int index = 0;
+	char *url;
+	while(index < 4){
+
+		dbGetResponseUrlForUser( userList[index], url);
+		index++;
+	}
 
 }

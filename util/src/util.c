@@ -3,6 +3,7 @@
 #include<stdbool.h>
 #include<errno.h>
 #include<string.h>
+#include<errCodes.h>
 
 int utilAddTwoNumbers(int a, int b){
 
@@ -18,7 +19,7 @@ int noOfChars(const char *word){
 	}
 	
 	int count = 0;
-	while( *word != '\0' && *word != ' '){
+	while( *word != '\0' && *word != ' ' && *word != '\n' && *word != '\t' ){
 		count++;
 		word++;
 	}
@@ -86,4 +87,13 @@ void captureConfig( char *filePath, void (*configAdd)(char*,int,int)){
 
               configAdd(buffer,key,val);
         }
+}
+
+void initErrorCodes(void){
+
+        errDescription[INVALID_CONFIG_SERVER_ABSENT] = "Server name absent from config file";
+        errDescription[INVALID_CONFIG_DB_ABSENT] = "Db name absent from config file";
+        errDescription[INVALID_CONFIG_USER_ABSENT] = "Db User name absent from config file";
+        errDescription[DB_SERVER_CONNECTION_FAILURE] = "Connection to Db Failed";
+
 }

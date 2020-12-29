@@ -5,21 +5,19 @@
 #include<util.h>
 #include<errno.h>
 #include<string.h>
+#include<errCodes.h>
 
 #define dbConfigfile "../config/dbConfig.txt"
 
-//global data structures
-globalDbInfo dbInfo;
-globalDbConfig dbConfig;
-
-void dbInitialise(){
-
-	dbReadConfig();
+tErrCode dbInitialise(){
+	
+	return dbReadConfig();
 
 }
 
-void dbReadConfig(){
+tErrCode dbReadConfig(){
 
+	tErrCode err;
 	//initialising global Data Structures;
 	dbInfo.conn = NULL;
 	dbInfo.res  = NULL;
@@ -31,29 +29,46 @@ void dbReadConfig(){
 	dbConfig.database = NULL;
         
 	captureConfig( dbConfigfile, addConfigValue);	
-	printGlobalConfig();
-	return;
+        
+	
+        	printGlobalConfig();
+
+	//validating config file
+	if( ( err = dbConfigValidate() ) != SUCCESS ){
+
+		return err;
+	}
+
+	//establisting database connection
+	dbInfo.conn = mysql_init(NULL);
+        if(( err = dbConnect() ) != SUCCESS){
+		
+		return err;
+	}
+	
+	return SUCCESS;
 }
 
 
 void addConfigValue(char *buffer, int key, int val){
 	const char* bufval = buffer + val ;
 	const char* bufkey = buffer + key;
+	int size = noOfChars(bufval);
 	if(strcmp(bufkey,"user") == 0){
-           dbConfig.user = (char *)malloc(noOfChars(bufval));
-	   strcpy(dbConfig.user,bufval);          
+           dbConfig.user = (char *)malloc(size + 1);
+	   strncpy(dbConfig.user,bufval,size);          
 	}
 	else if(strcmp(bufkey,"server") == 0 ){
-           dbConfig.server = (char *)malloc(noOfChars(bufval));
-	   strcpy(dbConfig.server,bufval);          
+           dbConfig.server = (char *)malloc(size + 1);
+	   strncpy(dbConfig.server,bufval,size);          
 	}
 	else if(strcmp(bufkey,"password") == 0){
-           dbConfig.password = (char *)malloc(noOfChars(bufval));
-	   strcpy(dbConfig.password,bufval);          
+           dbConfig.password = (char *)malloc(size + 1);
+	   strncpy(dbConfig.password,bufval,size);          
 	}
 	else if(strcmp(bufkey,"database") == 0){
-           dbConfig.database = (char *)malloc(noOfChars(bufval));
-	   strcpy(dbConfig.database,bufval);          
+           dbConfig.database = (char *)malloc(size + 1);
+	   strncpy(dbConfig.database,bufval,size);          
 
 	}
 }
@@ -72,4 +87,34 @@ void printGlobalConfig(){
 	if(dbConfig.database != NULL){
 	 	printf("database: %s\n",dbConfig.database);
 	}
+}
+
+tErrCode dbConfigValidate(){
+
+	if(dbConfig.user == NULL){
+		return INVALID_CONFIG_USER_ABSENT;
+	}
+	if(dbConfig.server == NULL){
+		return INVALID_CONFIG_SERVER_ABSENT;
+	}
+	if(dbConfig.database == NULL){
+		return INVALID_CONFIG_DB_ABSENT;
+	}
+	if(dbConfig.password == NULL){
+		dbConfig.password = "";
+	}
+
+	return SUCCESS;
+}
+
+
+
+tErrCode dbConnect(){
+
+	if( !mysql_real_connect(dbInfo.conn, dbConfig.server, dbConfig.user, dbConfig.password, dbConfig.database,0,NULL,0)){
+
+		printf("Failed to connect MySQL Server %s. Error: %s\n", dbConfig.server, mysql_error(dbInfo.conn));
+		return DB_SERVER_CONNECTION_FAILURE;	
+	}	
+	return SUCCESS;
 }

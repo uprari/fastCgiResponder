@@ -1,5 +1,6 @@
 #include <mysql.h>
 #include <stdbool.h>
+#include <errCodes.h>
 #define MAX_LINE_SIZE 100
 typedef struct globalDbInfo{
 
@@ -16,11 +17,17 @@ typedef struct globalDbConfig{
 	char *database;
 
 } globalDbConfig;
+//global data structures
+globalDbInfo dbInfo;
+globalDbConfig dbConfig;
 
 // function declarations
-void dbInitialise(void);
-void dbReadConfig(void);
+tErrCode dbInitialise(void);
+tErrCode dbReadConfig(void);
 int escapeSpace(char *buffer, int index);
 bool extractKeyVal(char *buf, int *k, int *v , int index);
 void addConfigValue(char *buffer, int key, int val);
 void printGlobalConfig(void);
+tErrCode dbConnect(void);
+tErrCode dbConfigValidate();
+
