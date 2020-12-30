@@ -5,4 +5,5 @@ indent:
 	indent -kr src/*.c h/*.h
 
 clean:
-	rm -rf *.o
+	rm -rf *.o 
+	find . -type f -name '*~' -delete

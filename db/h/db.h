@@ -24,8 +24,6 @@ globalDbConfig dbConfig;
 // function declarations
 tErrCode dbInitialise(void);
 tErrCode dbReadConfig(void);
-int escapeSpace(char *buffer, int index);
-bool extractKeyVal(char *buf, int *k, int *v, int index);
 void addConfigValue(char *buffer, int key, int val);
 void printGlobalConfig(void);
 tErrCode dbConnect(void);

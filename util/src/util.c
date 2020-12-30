@@ -12,7 +12,7 @@ int utilAddTwoNumbers(int a, int b)
 
 }
 
-int noOfChars(const char *word)
+int utilNoOfChars(const char *word)
 {
 
     if (word == NULL) {
@@ -29,7 +29,7 @@ int noOfChars(const char *word)
     return count;
 }
 
-int escapeSpace(char *buffer, int index)
+int utilEscapeSpace(char *buffer, int index)
 {
 
     while (buffer[index] == ' ' || buffer[index] == '\t')
@@ -38,7 +38,7 @@ int escapeSpace(char *buffer, int index)
 
 }
 
-bool extractKeyVal(char *buf, int *k, int *v, int index)
+bool utilExtractKeyVal(char *buf, int *k, int *v, int index)
 {
 
     if (buf[index] == '\0')
@@ -51,7 +51,7 @@ bool extractKeyVal(char *buf, int *k, int *v, int index)
 	buf[index - 1] = '\0';
 	break;
     }
-    escapeSpace(buf, index);
+    utilEscapeSpace(buf, index);
     if (buf[index] != '\0')
 	*v = index;
 
@@ -61,7 +61,7 @@ bool extractKeyVal(char *buf, int *k, int *v, int index)
     return false;
 }
 
-void captureConfig(char *filePath, void (*configAdd) (char *, int, int))
+void utilCaptureConfig(char *filePath, void (*configAdd) (char *, int, int))
 {
 
     if (filePath == NULL || configAdd == NULL) {
@@ -86,15 +86,15 @@ void captureConfig(char *filePath, void (*configAdd) (char *, int, int))
 	key = val = index = 0;
 	if (buffer[index] == '#')
 	    continue;
-	index = escapeSpace(buffer, index);
-	if (extractKeyVal(buffer, &key, &val, index) == false)
+	index = utilEscapeSpace(buffer, index);
+	if (utilExtractKeyVal(buffer, &key, &val, index) == false)
 	    continue;
 
 	configAdd(buffer, key, val);
     }
 }
 
-void initErrorCodes(void)
+void utilInitErrorCodes(void)
 {
 
     errDescription[INVALID_CONFIG_SERVER_ABSENT] =

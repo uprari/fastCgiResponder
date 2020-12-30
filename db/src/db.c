@@ -30,11 +30,9 @@ tErrCode dbReadConfig()
     dbConfig.password = NULL;
     dbConfig.database = NULL;
 
-    captureConfig(dbConfigfile, addConfigValue);
-
+    utilCaptureConfig(dbConfigfile, addConfigValue);
 
     printGlobalConfig();
-
     //validating config file
     if ((err = dbConfigValidate()) != SUCCESS) {
 
@@ -55,7 +53,7 @@ void addConfigValue(char *buffer, int key, int val)
 {
     const char *bufval = buffer + val;
     const char *bufkey = buffer + key;
-    int size = noOfChars(bufval);
+    int size = utilNoOfChars(bufval);
     if (strcmp(bufkey, "user") == 0) {
 	dbConfig.user = (char *) malloc(size + 1);
 	strncpy(dbConfig.user, bufval, size);

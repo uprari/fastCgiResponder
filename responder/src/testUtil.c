@@ -15,11 +15,11 @@ bool testNoOfChars()
 
     while (index < 4) {
 
-	if (noOfChars(wordlist[index]) == expectedOutcome[index++]) {
+	if (utilNoOfChars(wordlist[index]) == expectedOutcome[index++]) {
 	    continue;
 	} else {
 	    printf("expeted %d recieved %d", expectedOutcome[index],
-		   noOfChars(wordlist[index]));
+		   utilNoOfChars(wordlist[index]));
 	    return false;
 	}
 	index++;

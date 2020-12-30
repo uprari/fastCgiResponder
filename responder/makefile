@@ -24,6 +24,7 @@ all: $(OBJ)
 install :
 	gcc -g $(MYSQL_FLAGS) obj/*.o ../db/obj/*.o ../util/util.o -o test.exe $(MYSQL_LIB)
 clean:
+	find . -type f -name '*~' -delete
 	rm -rf obj/*.o
 
 indent :

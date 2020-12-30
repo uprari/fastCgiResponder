@@ -33,7 +33,7 @@ int main()
     printf("The values recieved are %d , %d\n", firstNumber, secondNumber);
     result = utilAddTwoNumbers(firstNumber, secondNumber);
     printf("Sum of the two number's is %d\n", result);
-    initErrorCodes();
+    utilInitErrorCodes();
     if ((err = dbInitialise()) != SUCCESS) {
 	printf("database initialisation failed due to err : %s\n",
 	       errDescription[err]);

@@ -15,9 +15,11 @@ all : $(OBJ)
 	gcc -g -c  $(INCLUDE) -I$(HEADER_DIR) -I/usr/include/mysql/ $< -o $@
 clean:
 	rm -rf *.o
+	find . -type f -name '*~' -delete
 
 indent :
 	indent -kr $(SOURCE_DIR)*.c $(HEADER_DIR)*.h
 print:
 	@echo $(SRC)
 	@echo $(OBJ)
+	

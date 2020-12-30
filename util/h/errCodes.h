@@ -20,5 +20,5 @@ typedef enum responderErrCodes tErrCode;
 
 char *errDescription[MAX_VALUE];
 
-void initErrorCodes(void);
+void utilInitErrorCodes(void);
 #endif
