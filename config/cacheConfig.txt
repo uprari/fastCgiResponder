@@ -1,0 +1,4 @@
+server localhost
+port 11211
+time 86400
+thread 4

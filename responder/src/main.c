@@ -15,10 +15,12 @@
 #include<dbQuery.h>
 #include<testUtil.h>
 #include<errCodes.h>
+#include<cache.h>
+#include<cacheQuery.h>
 
-#define SUCCESS_ 0
-#define FAILURE_ 1
-
+#define SUCCESS 0
+#define FAILURE 1
+#define MAX_RESPONSE_SIZE 100
 int main()
 {
 
@@ -34,17 +36,32 @@ int main()
     result = utilAddTwoNumbers(firstNumber, secondNumber);
     printf("Sum of the two number's is %d\n", result);
     utilInitErrorCodes();
-    if ((err = dbInitialise()) != SUCCESS) {
+    if ((err = dbInitialise()) != NO_ERROR) {
 	printf("database initialisation failed due to err : %s\n",
 	       errDescription[err]);
-	return FAILURE_;
+	return FAILURE;
     }
+    if ((err = cacheInitialise()) != NO_ERROR) {
 
-    char *responseUrl = NULL;
+	printf("cache initialisation failed due to err :%s\n",
+	       errDescription[err]);
+	return FAILURE;
+    }
+    char responseUrl[MAX_RESPONSE_SIZE] ;
+	char *cacheResponseUrl = NULL;
     char *queryUserName = "raju";
     dbGetResponseUrlForUser(queryUserName, responseUrl);
+	cacheSetValue( queryUserName, responseUrl);
 
+	cacheGetValue(queryUserName, &cacheResponseUrl);
+	if(cacheResponseUrl != NULL ){
+		printf("cache: value recieved: %s for key %s\n",cacheResponseUrl,queryUserName);
+		free(cacheResponseUrl);
+	}
+    	
     testDbGetResponseUrlForUser();
     testNoOfChars();
-    return SUCCESS_;
+    //TODO :-
+    //     CLEAN DB AND CLOSE IT
+    return SUCCESS;
 }

@@ -34,25 +34,25 @@ tErrCode dbReadConfig()
 
     printGlobalConfig();
     //validating config file
-    if ((err = dbConfigValidate()) != SUCCESS) {
+    if ((err = dbConfigValidate()) != NO_ERROR) {
 
 	return err;
     }
     //establisting database connection
     dbInfo.conn = mysql_init(NULL);
-    if ((err = dbConnect()) != SUCCESS) {
+    if ((err = dbConnect()) != NO_ERROR) {
 
 	return err;
     }
 
-    return SUCCESS;
+    return NO_ERROR;
 }
 
 
 void addConfigValue(char *buffer, int key, int val)
 {
-    const char *bufval = buffer + val;
-    const char *bufkey = buffer + key;
+    char *bufval = buffer + val;
+    char *bufkey = buffer + key;
     int size = utilNoOfChars(bufval);
     if (strcmp(bufkey, "user") == 0) {
 	dbConfig.user = (char *) malloc(size + 1);
@@ -103,7 +103,7 @@ tErrCode dbConfigValidate()
 	dbConfig.password = "";
     }
 
-    return SUCCESS;
+    return NO_ERROR;
 }
 
 
@@ -119,5 +119,5 @@ tErrCode dbConnect()
 	       dbConfig.server, mysql_error(dbInfo.conn));
 	return DB_SERVER_CONNECTION_FAILURE;
     }
-    return SUCCESS;
+    return NO_ERROR;
 }

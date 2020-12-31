@@ -3,6 +3,7 @@
 #include <errCodes.h>
 #include <dbQuery.h>
 #include <db.h>
+#include <string.h>
 
 tErrCode dbGetResponseUrlForUser(char *username, char *url)
 {
@@ -29,9 +30,10 @@ tErrCode dbGetResponseUrlForUser(char *username, char *url)
 	return REDIRECTION_URL_FETCH_RESULT_STORE_FAILURE;
 
     }
-    if (result->data->rows == 1) {
-	url = *(result->data->data->data);
-	result->data->data->data = NULL;
+	if(result->row_count == 1){
+	MYSQL_ROW row;
+	row = mysql_fetch_row(result);
+	strcpy(url,row[0]);
 	printf("url retrieved %s for user : %s\n", url, username);
     } else {
 	printf("user not found: %s \n", username);

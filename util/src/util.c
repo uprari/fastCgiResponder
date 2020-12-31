@@ -12,7 +12,7 @@ int utilAddTwoNumbers(int a, int b)
 
 }
 
-int utilNoOfChars(const char *word)
+int utilNoOfChars( char *word)
 {
 
     if (word == NULL) {
@@ -25,6 +25,7 @@ int utilNoOfChars(const char *word)
 	count++;
 	word++;
     }
+	*word = '\0';
 
     return count;
 }
@@ -61,7 +62,8 @@ bool utilExtractKeyVal(char *buf, int *k, int *v, int index)
     return false;
 }
 
-void utilCaptureConfig(char *filePath, void (*configAdd) (char *, int, int))
+void utilCaptureConfig(char *filePath,
+		       void (*configAdd) (char *, int, int))
 {
 
     if (filePath == NULL || configAdd == NULL) {
@@ -71,7 +73,7 @@ void utilCaptureConfig(char *filePath, void (*configAdd) (char *, int, int))
     FILE *filePtr = NULL;
     char buffer[1000];
 
-    if ((filePtr = fopen("../config/dbConfig.txt", "r")) == NULL) {
+    if ((filePtr = fopen(filePath, "r")) == NULL) {
 	printf("ERROR! Opening file\n");
 	printf("Configuration reading failed, with error no %d: %s \n",
 	       errno, strerror(errno));
@@ -103,6 +105,14 @@ void utilInitErrorCodes(void)
 	"Db name absent from config file";
     errDescription[INVALID_CONFIG_USER_ABSENT] =
 	"Db User name absent from config file";
+    errDescription[DB_SERVER_CONNECTION_FAILURE] =
+	"Connection to Db Failed";
+    errDescription[REDIRECTION_URL_FETCH_FAILURE] =
+	"Unable to fetch redirection url from database";
+    errDescription[REDIRECTION_URL_FETCH_RESULT_STORE_FAILURE] =
+	"Unable to store result from db";
+    errDescription[QUERY_FORMATION_ERROR] =
+	"Error while forming query for database";
     errDescription[DB_SERVER_CONNECTION_FAILURE] =
 	"Connection to Db Failed";
 

@@ -8,6 +8,11 @@ cd ../db
 make clean
 make
 
+echo "building cache"
+cd ../cache
+make clean
+make
+
 echo "building responder"
 cd ../responder
 make clean
