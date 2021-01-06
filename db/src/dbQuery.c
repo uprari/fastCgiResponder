@@ -35,10 +35,11 @@ tErrCode dbGetResponseUrlForUser(char *username, char *url)
 	row = mysql_fetch_row(result);
 	strcpy(url,row[0]);
 	printf("url retrieved %s for user : %s\n", url, username);
+    mysql_free_result(result);
+	return NO_ERROR;
     } else {
 	printf("user not found: %s \n", username);
     }
     mysql_free_result(result);
-
-
+	return DB_RECORD_ABSENT;
 }

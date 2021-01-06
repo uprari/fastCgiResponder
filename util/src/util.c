@@ -86,6 +86,8 @@ void utilCaptureConfig(char *filePath,
     while ((fgets(buffer, MAX_LINE_SIZE, filePtr)) != NULL) {
 
 	key = val = index = 0;
+    errDescription[INVALID_QUERY_USER_NOT_FOUND] =
+	"user not found in get query request";
 	if (buffer[index] == '#')
 	    continue;
 	index = utilEscapeSpace(buffer, index);
@@ -115,5 +117,9 @@ void utilInitErrorCodes(void)
 	"Error while forming query for database";
     errDescription[DB_SERVER_CONNECTION_FAILURE] =
 	"Connection to Db Failed";
+    errDescription[INVALID_QUERY_USER_NOT_FOUND] =
+	"user not found in HTTP GET query request";
+    errDescription[DB_RECORD_ABSENT] =
+	"user not found in Database";
 
 }

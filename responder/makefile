@@ -3,12 +3,16 @@ MYSQL_LIB = $(shell mysql_config --libs)
 MYSQL_FLAGS = $(shell mysql_config --cflags)
 MEMCACHE_LIB = memcached
 
+SHARED_LIB = -lfcgi
+SHARED_PATH = -Wl,-rpath /usr/local/lib
+
 .SUFFIXES: .o .c 
 
 INCLUDE = -Ih/ \
 	  -I../db/h/ \
 	  -I../cache/h/ \
-	  -I../util/h/ 
+	  -I../util/h/ \
+		-I../include/\
 
 SOURCE_DIR = src/
 SRC = $(wildcard $(SOURCE_DIR)*.c)
@@ -24,7 +28,7 @@ all: $(OBJ)
 	mv *.o obj/
 	
 install :
-	gcc -g $(MYSQL_FLAGS) obj/*.o ../db/obj/*.o ../util/util.o ../cache/obj/*.o -o test.exe $(MYSQL_LIB) -l$(MEMCACHE_LIB)
+	gcc -g $(MYSQL_FLAGS) obj/*.o ../db/obj/*.o ../util/util.o ../cache/obj/*.o -o test.exe $(MYSQL_LIB) -l$(MEMCACHE_LIB) $(SHARED_PATH) $(SHARED_LIB)
 clean:
 	find . -type f -name '*~' -delete
 	rm -rf obj/*.o

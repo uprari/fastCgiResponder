@@ -2,6 +2,9 @@
 #define UTIL_H
 #include <stdbool.h>
 #define MAX_LINE_SIZE 100
+#define SUCCESS 0
+#define FAILURE 1
+#define MAX_RESPONSE_SIZE 100
 
 int utilAddTwoNumbers(int a, int b);
 int utilNoOfChars( char *word);
