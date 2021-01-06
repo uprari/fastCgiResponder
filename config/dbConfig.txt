@@ -6,7 +6,7 @@
  
          
 
-server localhost
+   server localhost
 user root
 password 1212
 database webpages

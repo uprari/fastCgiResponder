@@ -7,7 +7,7 @@
 #define MAX_RESPONSE_SIZE 100
 
 int utilAddTwoNumbers(int a, int b);
-int utilNoOfChars( char *word);
+int utilNoOfChars(char *word);
 void utilCaptureConfig(char *filePath,
 		       void (*configAdd) (char *, int, int));
 int utilEscapeSpace(char *buffer, int index);
