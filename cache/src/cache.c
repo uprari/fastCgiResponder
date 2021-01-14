@@ -30,14 +30,36 @@ tErrCode cacheInitialise()
 	rc = memcached_server_push(gCacheCtx.memc, gCacheCtx.servers);
 
 	if (rc == MEMCACHED_SUCCESS)
-		printf("Added server successfully\n");
+		RESPONDER_LOG("Added server successfully\n");
 	else
-		printf("Couldn't add server: %s\n",
+		RESPONDER_LOG("Couldn't add server: %s\n",
 				memcached_strerror(gCacheCtx.memc, rc));
 
 	return 0;
 
 }
+
+tErrCode thCacheConnect( memcached_st **memc){
+
+	memcached_return rc;
+	memcached_server_st *servers;
+ 	*memc = memcached_create(NULL);
+	servers = 
+		memcached_server_list_append( servers, gCacheCnf.serverIP,
+			gCacheCnf.port, &rc);
+	
+	rc = memcached_server_push(*memc,  servers);
+	
+	if (rc == MEMCACHED_SUCCESS)
+		RESPONDER_LOG("Added server successfully\n");
+	else
+		RESPONDER_LOG("Couldn't add server: %s\n",
+				memcached_strerror(gCacheCtx.memc, rc));
+	return 0;
+
+}
+
+
 
 tErrCode cacheReadConfig()
 {

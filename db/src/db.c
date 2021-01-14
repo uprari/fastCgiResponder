@@ -74,16 +74,16 @@ void printGlobalConfig()
 {
 
 	if (dbConfig.user != NULL) {
-		printf("user: %s\n", dbConfig.user);
+		RESPONDER_LOG("user: %s\n", dbConfig.user);
 	}
 	if (dbConfig.server != NULL) {
-		printf("server: %s\n", dbConfig.server);
+		RESPONDER_LOG("server: %s\n", dbConfig.server);
 	}
 	if (dbConfig.password != NULL) {
-		printf("password: %s\n", dbConfig.password);
+		RESPONDER_LOG("password: %s\n", dbConfig.password);
 	}
 	if (dbConfig.database != NULL) {
-		printf("database: %s\n", dbConfig.database);
+		RESPONDER_LOG("database: %s\n", dbConfig.database);
 	}
 }
 
@@ -115,9 +115,23 @@ tErrCode dbConnect()
 			(dbInfo.conn, dbConfig.server, dbConfig.user, dbConfig.password,
 			 dbConfig.database, 0, NULL, 0)) {
 
-		printf("Failed to connect MySQL Server %s. Error: %s\n",
+		RESPONDER_LOG("Failed to connect MySQL Server %s. Error: %s\n",
 				dbConfig.server, mysql_error(dbInfo.conn));
 		return DB_SERVER_CONNECTION_FAILURE;
 	}
 	return NO_ERROR;
+}
+
+tErrCode thDbConnect(MYSQL **conn){
+
+	*conn = mysql_init(NULL);
+	if (!mysql_real_connect
+			( *conn, dbConfig.server, dbConfig.user, dbConfig.password,
+			 dbConfig.database, 0, NULL, 0)) {
+		RESPONDER_LOG("Failed to connect MySQL Server %s. Error: %s\n",
+				dbConfig.server, mysql_error(*conn));
+		return DB_SERVER_CONNECTION_FAILURE;
+	}
+	return NO_ERROR;
+
 }

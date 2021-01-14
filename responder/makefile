@@ -32,9 +32,12 @@ install :
 clean:
 	find . -type f -name '*~' -delete
 	rm -rf obj/*.o
-
+	rm -rf *.i
 indent :
 	indent -kr src/*.c h/*.h
 print:
 	@echo $(OBJ)
 	@echo $(SRC)
+
+macro : $(SRC)
+		gcc -E $(INCLUDE) $(MYSQL_LIB_PATH)  $(SRC) > main.i

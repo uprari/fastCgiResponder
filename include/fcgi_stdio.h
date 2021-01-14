@@ -59,7 +59,7 @@ DLLAPI void FCGI_SetExitStatus(int status);
 DLLAPI extern	FCGI_FILE	_fcgi_sF[];
 #define FCGI_stdin	(&_fcgi_sF[0])
 #define FCGI_stdout	(&_fcgi_sF[1])
-#define FCGI_stderr	(&_fcgi_sF[2])
+#define FCGI_stderr (&_fcgi_sF[2])
 
 /*
  * Wrapper function prototypes, grouped according to sections
@@ -142,10 +142,10 @@ DLLAPI int        FCGI_pclose(FCGI_FILE *);
 
 #undef  stdin
 #define	stdin    FCGI_stdin
-#undef  stdout
-#define	stdout   FCGI_stdout
-#undef  stderr
-#define	stderr   FCGI_stderr
+//#undef  stdout
+//#define	stdout   FCGI_stdout
+//#undef  stderr
+//#define stderr   FCGI_stderr
 
 #undef  perror
 #define	perror   FCGI_perror
@@ -201,8 +201,6 @@ DLLAPI int        FCGI_pclose(FCGI_FILE *);
 #undef  puts
 #define	puts     FCGI_puts
 
-#undef  fprintf
-#define	fprintf  FCGI_fprintf
 #undef  printf
 #define	printf   FCGI_printf
 

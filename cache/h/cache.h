@@ -1,4 +1,3 @@
-
 #ifndef CACHE_H
 #define CACHE_H
 
@@ -27,5 +26,6 @@ tErrCode cacheInitialise();
 tErrCode cacheReadConfig();
 void cacheAddConfigValue(char *buffer, int key, int val);
 tErrCode cacheConfigValidate();
+tErrCode thCacheConnect( memcached_st **memc);
 
 #endif

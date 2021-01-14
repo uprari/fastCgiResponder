@@ -60,7 +60,7 @@ int  testDbCacheQueries(){
 	printf("The values recieved are %d , %d\n", firstNumber, secondNumber);
 	result = utilAddTwoNumbers(firstNumber, secondNumber);
 	printf("Sum of the two number's is %d\n", result);
-	utilInitErrorCodes();
+	utilInit();
 	if ((err = dbInitialise()) != NO_ERROR) {
 		printf("database initialisation failed due to err : %s\n",
 				errDescription[err]);
@@ -93,9 +93,12 @@ int  testDbCacheQueries(){
 
 void testGetQueryForUser(){
 
-	char *testQuery = "user=3";
-	char user[MAX_RESPONSE_SIZE];
-	getUserFromQuery(testQuery,user);
+	char testQuery[4][50] = { "user=3", "abc=123&user=abc","xys=123&abc=444&user=hello","user=abhishek&abc=213"};
+	char *user;
+	int index = 0;
 
-
+	while( *testQuery[index] != '\0' ){
+		getUserFromQuery(testQuery[index++], &user);
+		printf("the user name is %s\n",user);
+	}
 }

@@ -4,3 +4,4 @@
 char glbQueryString[MAX_QUERY_SIZE];
 
 tErrCode dbGetResponseUrlForUser(char *username, char* url);
+tErrCode thDbGetResponseUrlForUser(MYSQL *conn,char *username, char *url);

@@ -1,0 +1,264 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+BIN	build/Makefile	/^BIN = userRequestHandler$/;"	m
+CACHE_H	cache/h/cache.h	2;"	d
+CACHE_QUERY_H	cache/h/cacheQuery.h	2;"	d
+CC	build/Makefile	/^CC = gcc$/;"	m
+CFLAGS	build/Makefile	/^CFLAGS = -Wall #-Wextra -Werror$/;"	m
+DB_RECORD_ABSENT	util/h/errCodes.h	/^    DB_RECORD_ABSENT,$/;"	e	enum:responderErrCodes
+DB_SERVER_CONNECTION_FAILURE	util/h/errCodes.h	/^    DB_SERVER_CONNECTION_FAILURE,$/;"	e	enum:responderErrCodes
+DLLAPI	include/fcgi_stdio.h	28;"	d
+DLLAPI	include/fcgi_stdio.h	30;"	d
+DLLAPI	include/fcgiapp.h	27;"	d
+DLLAPI	include/fcgiapp.h	29;"	d
+ERR_CODES	util/h/errCodes.h	2;"	d
+FAILURE	responder/h/main.h	9;"	d
+FAILURE	responder/src/main.c	24;"	d	file:
+FAILURE	util/h/util.h	6;"	d
+FCGI_FAIL_ACCEPT_ON_INTR	include/fcgiapp.h	84;"	d
+FCGI_FILE	include/fcgi_stdio.h	/^} FCGI_FILE;$/;"	t	typeref:struct:__anon1
+FCGI_ToFILE	include/fcgi_stdio.h	52;"	d
+FCGI_ToFcgiStream	include/fcgi_stdio.h	53;"	d
+FCGI_errno	include/fcgiapp.h	/^    int FCGI_errno;                \/* error status *\/$/;"	m	struct:FCGX_Stream
+FCGI_stderr	include/fcgi_stdio.h	62;"	d
+FCGI_stdin	include/fcgi_stdio.h	60;"	d
+FCGI_stdout	include/fcgi_stdio.h	61;"	d
+FCGX_CALL_SEQ_ERROR	include/fcgiapp.h	43;"	d
+FCGX_PARAMS_ERROR	include/fcgiapp.h	42;"	d
+FCGX_PROTOCOL_ERROR	include/fcgiapp.h	41;"	d
+FCGX_ParamArray	include/fcgiapp.h	/^typedef char **FCGX_ParamArray;$/;"	t
+FCGX_Request	include/fcgiapp.h	/^typedef struct FCGX_Request {$/;"	s
+FCGX_Request	include/fcgiapp.h	/^} FCGX_Request;$/;"	t	typeref:struct:FCGX_Request
+FCGX_Stream	include/fcgiapp.h	/^typedef struct FCGX_Stream {$/;"	s
+FCGX_Stream	include/fcgiapp.h	/^} FCGX_Stream;$/;"	t	typeref:struct:FCGX_Stream
+FCGX_UNSUPPORTED_VERSION	include/fcgiapp.h	40;"	d
+FILE	include/fcgi_stdio.h	140;"	d
+FILE	include/fcgi_stdio.h	141;"	d
+HEADER_DIR	cache/makefile	/^HEADER_DIR = h\/$/;"	m
+HEADER_DIR	db/makefile	/^HEADER_DIR = h\/$/;"	m
+INCLUDE	cache/makefile	/^INCLUDE = -I..\/util\/h\/$/;"	m
+INCLUDE	db/makefile	/^INCLUDE = -I..\/util\/h$/;"	m
+INCLUDE	responder/makefile	/^INCLUDE = -Ih\/ \\$/;"	m
+INCLUDES	build/Makefile	/^INCLUDES = -I$(PATH)\/include \\$/;"	m
+INVALID_CONFIG_DB_ABSENT	util/h/errCodes.h	/^    INVALID_CONFIG_DB_ABSENT,$/;"	e	enum:responderErrCodes
+INVALID_CONFIG_SERVER_ABSENT	util/h/errCodes.h	/^    INVALID_CONFIG_SERVER_ABSENT = 1,$/;"	e	enum:responderErrCodes
+INVALID_CONFIG_USER_ABSENT	util/h/errCodes.h	/^    INVALID_CONFIG_USER_ABSENT,$/;"	e	enum:responderErrCodes
+INVALID_QUERY_USER_NOT_FOUND	util/h/errCodes.h	/^    INVALID_QUERY_USER_NOT_FOUND,$/;"	e	enum:responderErrCodes
+MAIN_H	responder/h/main.h	2;"	d
+MAX_DESCRIPTION_LENGTH	util/h/errCodes.h	4;"	d
+MAX_LINE_SIZE	db/h/db.h	4;"	d
+MAX_LINE_SIZE	util/h/util.h	4;"	d
+MAX_QUERY_SIZE	db/h/dbQuery.h	1;"	d
+MAX_RESPONSE_SIZE	responder/h/main.h	10;"	d
+MAX_RESPONSE_SIZE	responder/src/main.c	25;"	d	file:
+MAX_RESPONSE_SIZE	util/h/util.h	7;"	d
+MAX_THREAD_COUNT	responder/src/main.c	27;"	d	file:
+MAX_VALUE	util/h/errCodes.h	/^    MAX_VALUE$/;"	e	enum:responderErrCodes
+MEMCACHE_LIB	responder/makefile	/^MEMCACHE_LIB = memcached$/;"	m
+MYSQL_FLAGS	responder/makefile	/^MYSQL_FLAGS = $(shell mysql_config --cflags)$/;"	m
+MYSQL_LIB	responder/makefile	/^MYSQL_LIB = $(shell mysql_config --libs)$/;"	m
+MYSQL_LIB_PATH	responder/makefile	/^MYSQL_LIB_PATH = -I\/usr\/include\/mysql$/;"	m
+NO_ERROR	util/h/errCodes.h	/^    NO_ERROR = 0,$/;"	e	enum:responderErrCodes
+OBJ	cache/makefile	/^OBJ = $(patsubst %.c, %.o, $(notdir $(SRC)))$/;"	m
+OBJ	db/makefile	/^OBJ = $(patsubst %.c, %.o, $(notdir $(SRC)))$/;"	m
+OBJ	responder/makefile	/^OBJ = $(patsubst %.c, %.o, $(notdir $(SRC)))$/;"	m
+OBJS	build/Makefile	/^OBJS = $(PATH)\/responder\/main.o \\$/;"	m
+PATH	build/Makefile	/^PATH = \/home\/test\/Project\/BootCamp$/;"	m
+QUERY_FORMATION_ERROR	util/h/errCodes.h	/^    QUERY_FORMATION_ERROR,$/;"	e	enum:responderErrCodes
+REDIRECTION_URL_FETCH_FAILURE	util/h/errCodes.h	/^    REDIRECTION_URL_FETCH_FAILURE,$/;"	e	enum:responderErrCodes
+REDIRECTION_URL_FETCH_RESULT_STORE_FAILURE	util/h/errCodes.h	/^    REDIRECTION_URL_FETCH_RESULT_STORE_FAILURE,$/;"	e	enum:responderErrCodes
+REDIRECTION_URL_QUERY_FORMAT	db/h/dbQuery.h	2;"	d
+RESPONDER_LOG	util/h/errCodes.h	31;"	d
+SHARED_LIB	responder/makefile	/^SHARED_LIB = -lfcgi$/;"	m
+SHARED_PATH	responder/makefile	/^SHARED_PATH = -Wl,-rpath \/usr\/local\/lib$/;"	m
+SOURCE_DIR	db/makefile	/^SOURCE_DIR = src\/$/;"	m
+SOURCE_DIR	responder/makefile	/^SOURCE_DIR = src\/$/;"	m
+SRC	build/Makefile	/^SRC  = $(PATH)\/responder\/src \\$/;"	m
+SRC	cache/makefile	/^SRC = $(wildcard $(SRC_DIR)*.c)$/;"	m
+SRC	db/makefile	/^SRC = $(wildcard $(SOURCE_DIR)*.c)$/;"	m
+SRC	responder/makefile	/^SRC = $(wildcard $(SOURCE_DIR)*.c)$/;"	m
+SRC_DIR	cache/makefile	/^SRC_DIR = src\/$/;"	m
+SUCCESS	responder/h/main.h	8;"	d
+SUCCESS	responder/src/main.c	23;"	d	file:
+SUCCESS	util/h/util.h	5;"	d
+UTIL_H	util/h/util.h	2;"	d
+_FCGIAPP_H	include/fcgiapp.h	16;"	d
+_FCGI_STDIO	include/fcgi_stdio.h	16;"	d
+addConfigValue	db/src/db.c	/^void addConfigValue(char *buffer, int key, int val)$/;"	f
+appStatus	include/fcgiapp.h	/^    int appStatus;$/;"	m	struct:FCGX_Request
+cacheAddConfigValue	cache/src/cache.c	/^void cacheAddConfigValue(char *buffer, int key, int val)$/;"	f
+cacheConfigFile	cache/src/cache.c	8;"	d	file:
+cacheConfigValidate	cache/src/cache.c	/^tErrCode cacheConfigValidate()$/;"	f
+cacheGetValue	cache/src/cacheQuery.c	/^tErrCode cacheGetValue(char *key , char** value)$/;"	f
+cacheInitialise	cache/src/cache.c	/^tErrCode cacheInitialise()$/;"	f
+cacheReadConfig	cache/src/cache.c	/^tErrCode cacheReadConfig()$/;"	f
+cacheSetValue	cache/src/cacheQuery.c	/^tErrCode cacheSetValue(char *key, char *value)$/;"	f
+clearerr	include/fcgi_stdio.h	221;"	d
+clearerr	include/fcgi_stdio.h	222;"	d
+conn	db/h/db.h	/^    MYSQL *conn;$/;"	m	struct:globalDbInfo
+conn	responder/h/main.h	/^	MYSQL *conn;$/;"	m	struct:threadCtx
+data	include/fcgiapp.h	/^    void *data;$/;"	m	struct:FCGX_Stream
+database	db/h/db.h	/^    char *database;$/;"	m	struct:globalDbConfig
+dbConfig	db/h/db.h	/^globalDbConfig dbConfig;$/;"	v
+dbConfigValidate	db/src/db.c	/^tErrCode dbConfigValidate()$/;"	f
+dbConfigfile	db/src/db.c	10;"	d	file:
+dbConnect	db/src/db.c	/^tErrCode dbConnect()$/;"	f
+dbGetResponseUrlForUser	db/src/dbQuery.c	/^tErrCode dbGetResponseUrlForUser(char *username, char *url)$/;"	f
+dbInfo	db/h/db.h	/^globalDbInfo dbInfo;$/;"	v
+dbInitialise	db/src/db.c	/^tErrCode dbInitialise()$/;"	f
+dbReadConfig	db/src/db.c	/^tErrCode dbReadConfig()$/;"	f
+detached	include/fcgiapp.h	/^    int detached;$/;"	m	struct:FCGX_Request
+emptyBuffProc	include/fcgiapp.h	/^    void (*emptyBuffProc) (struct FCGX_Stream *stream, int doClose);$/;"	m	struct:FCGX_Stream
+envp	include/fcgiapp.h	/^    char **envp;$/;"	m	struct:FCGX_Request
+err	include/fcgiapp.h	/^    FCGX_Stream *err;$/;"	m	struct:FCGX_Request
+errDescription	util/h/errCodes.h	/^char *errDescription[MAX_VALUE];$/;"	v
+expireTime	cache/h/cache.h	/^    unsigned int expireTime;$/;"	m	struct:globalCacheConfig
+fcgx_stream	include/fcgi_stdio.h	/^    FCGX_Stream *fcgx_stream;$/;"	m	struct:__anon1
+fclose	include/fcgi_stdio.h	155;"	d
+fclose	include/fcgi_stdio.h	156;"	d
+fdopen	include/fcgi_stdio.h	229;"	d
+fdopen	include/fcgi_stdio.h	230;"	d
+feof	include/fcgi_stdio.h	217;"	d
+feof	include/fcgi_stdio.h	218;"	d
+ferror	include/fcgi_stdio.h	219;"	d
+ferror	include/fcgi_stdio.h	220;"	d
+fflush	include/fcgi_stdio.h	157;"	d
+fflush	include/fcgi_stdio.h	158;"	d
+fgetc	include/fcgi_stdio.h	178;"	d
+fgetc	include/fcgi_stdio.h	179;"	d
+fgetpos	include/fcgi_stdio.h	173;"	d
+fgetpos	include/fcgi_stdio.h	174;"	d
+fgets	include/fcgi_stdio.h	187;"	d
+fgets	include/fcgi_stdio.h	188;"	d
+fileno	include/fcgi_stdio.h	227;"	d
+fileno	include/fcgi_stdio.h	228;"	d
+fillBuffProc	include/fcgiapp.h	/^    void (*fillBuffProc) (struct FCGX_Stream *stream);$/;"	m	struct:FCGX_Stream
+flags	include/fcgiapp.h	/^    int flags;$/;"	m	struct:FCGX_Request
+fopen	include/fcgi_stdio.h	153;"	d
+fopen	include/fcgi_stdio.h	154;"	d
+fputc	include/fcgi_stdio.h	192;"	d
+fputc	include/fcgi_stdio.h	193;"	d
+fputs	include/fcgi_stdio.h	199;"	d
+fputs	include/fcgi_stdio.h	200;"	d
+fread	include/fcgi_stdio.h	212;"	d
+fread	include/fcgi_stdio.h	213;"	d
+freopen	include/fcgi_stdio.h	159;"	d
+freopen	include/fcgi_stdio.h	160;"	d
+fseek	include/fcgi_stdio.h	167;"	d
+fseek	include/fcgi_stdio.h	168;"	d
+fsetpos	include/fcgi_stdio.h	175;"	d
+fsetpos	include/fcgi_stdio.h	176;"	d
+ftell	include/fcgi_stdio.h	169;"	d
+ftell	include/fcgi_stdio.h	170;"	d
+fwrite	include/fcgi_stdio.h	214;"	d
+fwrite	include/fcgi_stdio.h	215;"	d
+gCacheCnf	cache/h/cache.h	/^gCacheConf gCacheCnf;$/;"	v
+gCacheConf	cache/h/cache.h	/^} gCacheConf;$/;"	t	typeref:struct:globalCacheConfig
+gCacheContex	cache/h/cache.h	/^} gCacheContex;$/;"	t	typeref:struct:globalCacheContex
+gCacheCtx	cache/h/cache.h	/^gCacheContex gCacheCtx;$/;"	v
+gThreadCount	responder/src/main.c	/^int gThreadCount;$/;"	v
+getUserFromQuery	responder/src/main.c	/^tErrCode getUserFromQuery(char *queryString, char *user){$/;"	f
+getc	include/fcgi_stdio.h	180;"	d
+getc	include/fcgi_stdio.h	181;"	d
+getchar	include/fcgi_stdio.h	182;"	d
+getchar	include/fcgi_stdio.h	183;"	d
+gets	include/fcgi_stdio.h	189;"	d
+gets	include/fcgi_stdio.h	190;"	d
+glbQueryString	db/h/dbQuery.h	/^char glbQueryString[MAX_QUERY_SIZE];$/;"	v
+globalCacheConfig	cache/h/cache.h	/^typedef struct globalCacheConfig {$/;"	s
+globalCacheContex	cache/h/cache.h	/^typedef struct globalCacheContex {$/;"	s
+globalDbConfig	db/h/db.h	/^typedef struct globalDbConfig {$/;"	s
+globalDbConfig	db/h/db.h	/^} globalDbConfig;$/;"	t	typeref:struct:globalDbConfig
+globalDbInfo	db/h/db.h	/^typedef struct globalDbInfo {$/;"	s
+globalDbInfo	db/h/db.h	/^} globalDbInfo;$/;"	t	typeref:struct:globalDbInfo
+handlerFunction	responder/src/main.c	/^void *handlerFunction(void* thContex){$/;"	f
+in	include/fcgiapp.h	/^    FCGX_Stream *in;$/;"	m	struct:FCGX_Request
+ipcFd	include/fcgiapp.h	/^    int ipcFd;               \/* < 0 means no connection *\/$/;"	m	struct:FCGX_Request
+isBeginProcessed	include/fcgiapp.h	/^    int isBeginProcessed;     \/* FCGI_BEGIN_REQUEST seen *\/$/;"	m	struct:FCGX_Request
+isClosed	include/fcgiapp.h	/^    int isClosed;$/;"	m	struct:FCGX_Stream
+isReader	include/fcgiapp.h	/^    int isReader;$/;"	m	struct:FCGX_Stream
+keepConnection	include/fcgiapp.h	/^    int keepConnection;       \/* don't close ipcFd at end of request *\/$/;"	m	struct:FCGX_Request
+listen_sock	include/fcgiapp.h	/^    int listen_sock;$/;"	m	struct:FCGX_Request
+logFile	util/h/util.h	8;"	d
+main	responder/src/main.c	/^int main()$/;"	f
+mainAddConfigValue	responder/src/main.c	/^void mainAddConfigValue(char *buffer, int key, int val)$/;"	f
+mainConfigFile	responder/src/main.c	26;"	d	file:
+mainInit	responder/src/main.c	/^int mainInit(){$/;"	f
+memc	cache/h/cache.h	/^    memcached_st *memc;$/;"	m	struct:globalCacheContex
+memc	responder/h/main.h	/^	memcached_st *memc;$/;"	m	struct:threadCtx
+nWriters	include/fcgiapp.h	/^    int nWriters;             \/* number of open writers (0..2) *\/$/;"	m	struct:FCGX_Request
+out	include/fcgiapp.h	/^    FCGX_Stream *out;$/;"	m	struct:FCGX_Request
+paramsPtr	include/fcgiapp.h	/^    struct Params *paramsPtr;$/;"	m	struct:FCGX_Request	typeref:struct:FCGX_Request::Params
+password	db/h/db.h	/^    char *password;$/;"	m	struct:globalDbConfig
+pclose	include/fcgi_stdio.h	233;"	d
+pclose	include/fcgi_stdio.h	234;"	d
+perror	include/fcgi_stdio.h	150;"	d
+perror	include/fcgi_stdio.h	151;"	d
+popen	include/fcgi_stdio.h	231;"	d
+popen	include/fcgi_stdio.h	232;"	d
+port	cache/h/cache.h	/^    int port;$/;"	m	struct:globalCacheConfig
+printGlobalConfig	db/src/db.c	/^void printGlobalConfig()$/;"	f
+printf	include/fcgi_stdio.h	204;"	d
+printf	include/fcgi_stdio.h	205;"	d
+putc	include/fcgi_stdio.h	194;"	d
+putc	include/fcgi_stdio.h	195;"	d
+putchar	include/fcgi_stdio.h	196;"	d
+putchar	include/fcgi_stdio.h	197;"	d
+puts	include/fcgi_stdio.h	201;"	d
+puts	include/fcgi_stdio.h	202;"	d
+rdNext	include/fcgiapp.h	/^    unsigned char *rdNext;    \/* reader: first valid byte$/;"	m	struct:FCGX_Stream
+readConfig	responder/src/main.c	/^tErrCode readConfig()$/;"	f
+requestId	include/fcgiapp.h	/^    int requestId;            \/* valid if isBeginProcessed *\/$/;"	m	struct:FCGX_Request
+res	db/h/db.h	/^    MYSQL_RES *res;$/;"	m	struct:globalDbInfo
+responderErrCodes	util/h/errCodes.h	/^enum responderErrCodes {$/;"	g
+rewind	include/fcgi_stdio.h	171;"	d
+rewind	include/fcgi_stdio.h	172;"	d
+role	include/fcgiapp.h	/^    int role;$/;"	m	struct:FCGX_Request
+row	db/h/db.h	/^    MYSQL_ROW row;$/;"	m	struct:globalDbInfo
+server	db/h/db.h	/^    char *server;$/;"	m	struct:globalDbConfig
+serverIP	cache/h/cache.h	/^    char *serverIP;$/;"	m	struct:globalCacheConfig
+servers	cache/h/cache.h	/^    memcached_server_st *servers;$/;"	m	struct:globalCacheContex
+setbuf	include/fcgi_stdio.h	164;"	d
+setbuf	include/fcgi_stdio.h	165;"	d
+setvbuf	include/fcgi_stdio.h	162;"	d
+setvbuf	include/fcgi_stdio.h	163;"	d
+stdin	include/fcgi_stdio.h	143;"	d
+stdin	include/fcgi_stdio.h	144;"	d
+stdio_stream	include/fcgi_stdio.h	/^    FILE *stdio_stream;$/;"	m	struct:__anon1
+stop	include/fcgiapp.h	/^    unsigned char *stop;      \/* reader: last valid byte + 1$/;"	m	struct:FCGX_Stream
+stopUnget	include/fcgiapp.h	/^    unsigned char *stopUnget; \/* reader: first byte of current buffer$/;"	m	struct:FCGX_Stream
+tErrCode	util/h/errCodes.h	/^typedef enum responderErrCodes tErrCode;$/;"	t	typeref:enum:responderErrCodes
+testDbCacheQueries	responder/src/testUtil.c	/^int  testDbCacheQueries(){$/;"	f
+testDbGetResponseUrlForUser	responder/src/testUtil.c	/^void testDbGetResponseUrlForUser(void)$/;"	f
+testGetQueryForUser	responder/src/testUtil.c	/^void testGetQueryForUser(){$/;"	f
+testNoOfChars	responder/src/testUtil.c	/^bool testNoOfChars()$/;"	f
+thCacheConnect	cache/src/cache.c	/^tErrCode thCacheConnect( memcached_st **memc){$/;"	f
+thCacheGetValue	cache/src/cacheQuery.c	/^tErrCode thCacheGetValue( memcached_st *memc,char *key , char** value)$/;"	f
+thCacheSetValue	cache/src/cacheQuery.c	/^tErrCode thCacheSetValue( memcached_st *memc,char *key, char *value)$/;"	f
+thDbConnect	db/src/db.c	/^tErrCode thDbConnect(MYSQL **conn){$/;"	f
+thDbGetResponseUrlForUser	db/src/dbQuery.c	/^tErrCode thDbGetResponseUrlForUser(MYSQL *conn,char *username, char *url)$/;"	f
+threadCTX	responder/h/main.h	/^}threadCTX;$/;"	t	typeref:struct:threadCtx
+threadCount	cache/h/cache.h	/^    int threadCount;$/;"	m	struct:globalCacheConfig
+threadCtx	responder/h/main.h	/^typedef struct threadCtx{$/;"	s
+threadID	responder/h/main.h	/^	int threadID;$/;"	m	struct:threadCtx
+tmpfile	include/fcgi_stdio.h	224;"	d
+tmpfile	include/fcgi_stdio.h	225;"	d
+ungetc	include/fcgi_stdio.h	184;"	d
+ungetc	include/fcgi_stdio.h	185;"	d
+user	db/h/db.h	/^    char *user;$/;"	m	struct:globalDbConfig
+utilAddTwoNumbers	util/src/util.c	/^int utilAddTwoNumbers(int a, int b)$/;"	f
+utilCaptureConfig	util/src/util.c	/^utilCaptureConfig(char *filePath, void (*configAdd) (char *, int, int))$/;"	f
+utilEscapeSpace	util/src/util.c	/^int utilEscapeSpace(char *buffer, int index)$/;"	f
+utilExtractKeyVal	util/src/util.c	/^bool utilExtractKeyVal(char *buf, int *k, int *v, int index)$/;"	f
+utilInit	util/src/util.c	/^void utilInit(void)$/;"	f
+utilNoOfChars	util/src/util.c	/^int utilNoOfChars(char *word)$/;"	f
+vfprintf	include/fcgi_stdio.h	207;"	d
+vfprintf	include/fcgi_stdio.h	208;"	d
+vprintf	include/fcgi_stdio.h	209;"	d
+vprintf	include/fcgi_stdio.h	210;"	d
+wasFCloseCalled	include/fcgiapp.h	/^    int wasFCloseCalled;$/;"	m	struct:FCGX_Stream
+wrNext	include/fcgiapp.h	/^    unsigned char *wrNext;    \/* writer: first free byte$/;"	m	struct:FCGX_Stream

@@ -1,7 +1,8 @@
 #ifndef ERR_CODES
 #define ERR_CODES
-
+#include<stdio.h>
 #define MAX_DESCRIPTION_LENGTH 100
+
 enum responderErrCodes {
 
     NO_ERROR = 0,
@@ -22,5 +23,13 @@ typedef enum responderErrCodes tErrCode;
 
 char *errDescription[MAX_VALUE];
 
-void utilInitErrorCodes(void);
+void utilInit(void);
+
+//LOGGING STRUCTURE
+//FILE *logFileDesc;
+//#define LogFilePath "../log/log_responder.txt"
+#define RESPONDER_LOG(format, ...)
+// fprintf( stderr , format , ##__VA_ARGS__)
+
+
 #endif

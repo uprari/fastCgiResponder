@@ -96,9 +96,10 @@ utilCaptureConfig(char *filePath, void (*configAdd) (char *, int, int))
 	}
 }
 
-void utilInitErrorCodes(void)
+void utilInit(void)
 {
-
+   	//logFileDesc = fopen(LogFilePath, "a");
+    //initing error description`
 	errDescription[INVALID_CONFIG_SERVER_ABSENT] =
 		"Server name absent from config file";
 	errDescription[INVALID_CONFIG_DB_ABSENT] =
@@ -119,4 +120,57 @@ void utilInitErrorCodes(void)
 		"user not found in HTTP GET query request";
 	errDescription[DB_RECORD_ABSENT] = "user not found in Database";
 
+}
+
+tErrCode getUserFromQuery(char *queryString, char **user){
+
+	char *key;
+	char *searchKey = "user";
+	int len = 4;
+	int index = 0;
+	int sIndex = 0;
+	bool found = false;
+	int valueLen = 0;
+    bool skipKey = false;
+
+	key = queryString;
+	while(key[index] != '\0'){
+
+		sIndex = 0;	
+		skipKey = false;
+		while(key[index] != '\0' && sIndex < len){
+
+			if(key[index++] != searchKey[sIndex++]){
+				skipKey = true ;
+				break;
+			}
+		}
+		if (skipKey){
+			while(key[index] != '\0' && key[index] !='&'){
+				index++;
+			}
+			if(key[index] == '&'){
+				index++;
+			}
+			continue;
+		}
+		if(sIndex == len && key[index++] == '=' ){
+           
+			key = key + index; //update key position to value
+			index = 0;
+			while(key[index]!= '\0' && key[index]!='&'){
+				index++;
+			}
+			if(index < MAX_RESPONSE_SIZE){
+				*user = key;
+			}
+			if ( key[index] != '\0' ){
+				key[index]='\0';
+			}
+			return NO_ERROR;
+		}
+		
+	}
+
+	return 	INVALID_QUERY_USER_NOT_FOUND;	
 }

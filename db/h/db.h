@@ -28,3 +28,4 @@ void addConfigValue(char *buffer, int key, int val);
 void printGlobalConfig(void);
 tErrCode dbConnect(void);
 tErrCode dbConfigValidate();
+tErrCode thDbConnect(MYSQL **conn);
