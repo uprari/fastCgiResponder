@@ -24,7 +24,7 @@ tErrCode readConfig(void);
 void *handlerFunction(void *);
 void mainAddConfigValue(char *buffer, int key, int val);
 void cleanUp(pthread_t * thread, threadCTX * thCtx);
-void mainConfigValidate();
+void mainConfigValidate(void);
 
 #define  GET_USER_FROM_QUERY(queryString, user) ({ \
     char *key; \

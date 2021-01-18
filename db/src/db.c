@@ -54,16 +54,16 @@ void addConfigValue(char *buffer, int key, int val)
 	char *bufval = buffer + val;
 	char *bufkey = buffer + key;
 	int size = utilNoOfChars(bufval);
-	if (strcmp(bufkey, "user") == 0) {
+	if (strcmp(bufkey, USER) == 0) {
 		dbConfig.user = (char *) malloc(size + 1);
 		strncpy(dbConfig.user, bufval, size);
-	} else if (strcmp(bufkey, "server") == 0) {
+	} else if (strcmp(bufkey, SERVER) == 0) {
 		dbConfig.server = (char *) malloc(size + 1);
 		strncpy(dbConfig.server, bufval, size);
-	} else if (strcmp(bufkey, "password") == 0) {
+	} else if (strcmp(bufkey, PASSWORD) == 0) {
 		dbConfig.password = (char *) malloc(size + 1);
 		strncpy(dbConfig.password, bufval, size);
-	} else if (strcmp(bufkey, "database") == 0) {
+	} else if (strcmp(bufkey, DATABASE) == 0) {
 		dbConfig.database = (char *) malloc(size + 1);
 		strncpy(dbConfig.database, bufval, size);
 

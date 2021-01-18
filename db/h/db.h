@@ -2,6 +2,13 @@
 #include <stdbool.h>
 #include <errCodes.h>
 #define MAX_LINE_SIZE 100
+#define ZERO 0
+#define ONE 1
+#define USER "user"
+#define SERVER "server"
+#define PASSWORD "password"
+#define DATABASE "database"
+
 typedef struct globalDbInfo {
 
     MYSQL *conn;

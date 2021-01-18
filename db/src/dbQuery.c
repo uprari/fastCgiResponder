@@ -8,10 +8,10 @@
 tErrCode dbGetResponseUrlForUser(char *username, char *url)
 {
 
-	int len = 0;
+	int len = ZERO;
 	len = sprintf(glbQueryString, REDIRECTION_URL_QUERY_FORMAT, username);
 
-	if (len == 0) {
+	if (ZERO == len) {
 		return QUERY_FORMATION_ERROR;
 	}
 	if (mysql_query(dbInfo.conn, glbQueryString)) {
@@ -23,14 +23,14 @@ tErrCode dbGetResponseUrlForUser(char *username, char *url)
 	}
 
 	MYSQL_RES *result = mysql_store_result(dbInfo.conn);
-	if (result == NULL) {
+	if (NULL == result) {
 
 		RESPONDER_LOG("Failed to store result Error: %s\n",
 				mysql_error(dbInfo.conn));
 		return REDIRECTION_URL_FETCH_RESULT_STORE_FAILURE;
 
 	}
-	if(result->row_count == 1){
+	if(ONE == result->row_count){
 		MYSQL_ROW row;
 		row = mysql_fetch_row(result);
 		strcpy(url,row[0]);
@@ -47,10 +47,10 @@ tErrCode dbGetResponseUrlForUser(char *username, char *url)
 tErrCode thDbGetResponseUrlForUser(MYSQL *conn,char *username, char *url)
 {
 
-	int len = 0;
+	int len = ZERO;
 	len = sprintf(glbQueryString, REDIRECTION_URL_QUERY_FORMAT, username);
 
-	if (len == 0) {
+	if (ZERO == len) {
 		return QUERY_FORMATION_ERROR;
 	}
 	if (mysql_query(conn, glbQueryString)) {
@@ -62,14 +62,14 @@ tErrCode thDbGetResponseUrlForUser(MYSQL *conn,char *username, char *url)
 	}
 
 	MYSQL_RES *result = mysql_store_result(conn);
-	if (result == NULL) {
+	if (NULL == result) {
 
 		RESPONDER_LOG("Failed to store result Error: %s\n",
 				mysql_error(conn));
 		return REDIRECTION_URL_FETCH_RESULT_STORE_FAILURE;
 
 	}
-	if(result->row_count == 1){
+	if(ONE == result->row_count){
 		MYSQL_ROW row;
 		row = mysql_fetch_row(result);
 		strcpy(url,row[0]);
