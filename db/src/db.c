@@ -39,12 +39,7 @@ tErrCode dbReadConfig()
 		return err;
 	}
 	//establisting database connection
-	dbInfo.conn = mysql_init(NULL);
-	if ((err = dbConnect()) != NO_ERROR) {
-
-		return err;
-	}
-
+	mysql_library_init(0,NULL,NULL);
 	return NO_ERROR;
 }
 
