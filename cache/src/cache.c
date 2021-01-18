@@ -18,21 +18,6 @@ tErrCode cacheInitialise()
 		return err;
 	}
 
-	gCacheCtx.servers = NULL;
-	memcached_return rc;
-	gCacheCtx.memc = memcached_create(NULL);
-
-	gCacheCtx.servers =
-		memcached_server_list_append(gCacheCtx.servers, gCacheCnf.serverIP,
-				gCacheCnf.port, &rc);
-	rc = memcached_server_push(gCacheCtx.memc, gCacheCtx.servers);
-
-	if (rc == MEMCACHED_SUCCESS)
-		RESPONDER_LOG("Added server successfully\n");
-	else
-		RESPONDER_LOG("Couldn't add server: %s\n",
-				memcached_strerror(gCacheCtx.memc, rc));
-
 	return err;
 
 }
@@ -50,13 +35,13 @@ tErrCode thCacheConnect( memcached_st **memc){
 	
 	rc = memcached_server_push(*memc,  servers);
 	
-	if (rc == MEMCACHED_SUCCESS){
+	if (MEMCACHED_SUCCESS == rc ){
 		RESPONDER_LOG("Added server successfully\n");
     }
 	else
 	{
 		RESPONDER_LOG("Couldn't add server: %s\n",
-				memcached_strerror(gCacheCtx.memc, rc));
+				memcached_strerror(*memc, rc));
 		err = MEMCACHE_CONNECTION_ERROR;
     }
 	return err;

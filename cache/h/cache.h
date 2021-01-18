@@ -19,15 +19,7 @@ typedef struct globalCacheConfig {
     int port;
 } gCacheConf;
 
-typedef struct globalCacheContex {
-
-    memcached_server_st *servers;
-    memcached_st *memc;
-
-} gCacheContex;
-
 gCacheConf gCacheCnf;
-gCacheContex gCacheCtx;
 
 tErrCode cacheInitialise();
 tErrCode cacheReadConfig();
