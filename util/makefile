@@ -1,5 +1,7 @@
+include ../build/top.mk
+
 all :
-	gcc -g -c -Ih/ src/*.c -o util.o
+	gcc $(gdb) $(DEFS) -c -Ih/ src/*.c -o util.o
 
 indent:
 	indent -kr src/*.c h/*.h

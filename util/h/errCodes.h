@@ -28,8 +28,11 @@ void utilInit(void);
 //LOGGING STRUCTURE
 //FILE *logFileDesc;
 //#define LogFilePath "../log/log_responder.txt"
-#define RESPONDER_LOG(format, ...)
-// fprintf( stderr , format , ##__VA_ARGS__)
 
+#ifdef responder_debug
+#define RESPONDER_LOG(format, ...) fprintf( stderr , format , ##__VA_ARGS__)
+#else
+#define RESPONDER_LOG(format, ...) 
+#endif
 
 #endif

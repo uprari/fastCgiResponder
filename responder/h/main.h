@@ -8,18 +8,23 @@
 #define SUCCESS 0
 #define FAILURE 1
 #define MAX_RESPONSE_SIZE 100
+#define THREAD "thread"
 
-typedef struct threadCtx{
-	int threadID;
-	memcached_st *memc;
-	MYSQL *conn;
-}threadCTX;
+#define MAX_THREAD_COUNT 100
+#define MIN_THREAD_COUNT 4
+
+typedef struct threadCtx {
+    int threadID;
+    memcached_st *memc;
+    MYSQL *conn;
+} threadCTX;
 
 int mainInit(void);
 tErrCode readConfig(void);
-void *handlerFunction(void*);
+void *handlerFunction(void *);
 void mainAddConfigValue(char *buffer, int key, int val);
-
+void cleanUp(pthread_t * thread, threadCTX * thCtx);
+void mainConfigValidate();
 
 #define  GET_USER_FROM_QUERY(queryString, user) ({ \
     char *key; \
@@ -30,7 +35,7 @@ void mainAddConfigValue(char *buffer, int key, int val);
 	bool found = false;\
 	int valueLen = 0;\
     bool skipKey = false;\
-\
+    index = 0;\
 	key = queryString;\
 	while(key[index] != '\0'){\
 \

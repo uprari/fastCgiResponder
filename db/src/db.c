@@ -135,3 +135,9 @@ tErrCode thDbConnect(MYSQL **conn){
 	return NO_ERROR;
 
 }
+
+void dbClean(MYSQL *conn){
+
+	mysql_close(conn);
+
+}

@@ -1,3 +1,5 @@
+include ../build/top.mk
+
 MYSQL_LIB_PATH = -I/usr/include/mysql
 MYSQL_LIB = $(shell mysql_config --libs)
 MYSQL_FLAGS = $(shell mysql_config --cflags)
@@ -21,7 +23,7 @@ OBJ = $(patsubst %.c, %.o, $(notdir $(SRC)))
 
 %.o : $(SOURCE_DIR)%.c
 	
-	gcc -g -c $(INCLUDE) $(MYSQL_LIB_PATH) $< -o $@
+	gcc $(gdb) $(DEFS) -c $(INCLUDE) $(MYSQL_LIB_PATH) $< -o $@
 
 all: $(OBJ)
 	

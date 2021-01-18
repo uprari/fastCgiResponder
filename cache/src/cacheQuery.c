@@ -73,3 +73,8 @@ tErrCode thCacheGetValue( memcached_st *memc,char *key , char** value)
 				memcached_strerror(memc, rc));
 	return NO_ERROR;
 }
+
+void cacheClean( memcached_st *memc){
+
+	memcached_free(memc);
+}

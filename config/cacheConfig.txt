@@ -1,4 +1,5 @@
 server localhost
 port 11211
 time 86400
+#remove thread value
 thread 4

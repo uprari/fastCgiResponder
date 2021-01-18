@@ -29,3 +29,4 @@ void printGlobalConfig(void);
 tErrCode dbConnect(void);
 tErrCode dbConfigValidate();
 tErrCode thDbConnect(MYSQL **conn);
+void dbClean(MYSQL *conn);

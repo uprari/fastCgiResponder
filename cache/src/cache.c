@@ -8,7 +8,7 @@
 #define cacheConfigFile "../config/cacheConfig.txt"
 
 tErrCode cacheInitialise()
-{
+{   // [COMMENT remove  old main thread connections]
 	//i,ntialising global variables
 	gCacheCnf.threadCount = 0;
 	gCacheCnf.expireTime = 0;

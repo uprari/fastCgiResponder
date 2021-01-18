@@ -1,3 +1,5 @@
+include ../build/top.mk
+
 SRC_DIR = src/
 HEADER_DIR = h/
 
@@ -9,7 +11,7 @@ OBJ = $(patsubst %.c, %.o, $(notdir $(SRC)))
 all	:	$(OBJ)
 		mv *.o obj/
 %.o : $(SRC_DIR)%.c
-		gcc -g -c -I$(HEADER_DIR) $(INCLUDE) $< -o $@
+		gcc $(gdb) $(DEFS) -c -I$(HEADER_DIR) $(INCLUDE) $< -o $@
 
 clean:
 		rm -rf *.o
